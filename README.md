@@ -1,7 +1,7 @@
 # Project 1: Docker Containerization Challenge
 ## Nebulance Systems BootCamp DevOps Class2025A
 
-## PROJECT TIMELINE: 5 DAYS
+## PROJECT TIMELINE: 4 DAYS
 
 ## PROJECT OVERVIEW
 
