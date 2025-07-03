@@ -2,7 +2,8 @@
 ## Nebulance Systems BootCamp DevOps Class2025A
 
 ## PROJECT TIMELINE: 
-* 4 DAYS  Submit a github repo by Monday 7th
+* 4 DAYS
+* Submit a github repo by Monday 7th
 * A screenshot of the application.
 * Present App on Tuesday
 
