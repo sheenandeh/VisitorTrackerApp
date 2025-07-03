@@ -1,184 +1,157 @@
-# Project 1: Docker Containerization Basics
+# Project 1: Docker Containerization Challenge
+## Nebulance Systems BootCamp DevOps Class2025A
 
-## Application Overview
+## Assignment Overview
 
-This project demonstrates containerization fundamentals using a **Flask Visitor Counter Web Application**. The app tracks website visitors using MongoDB for data persistence and provides real-time metrics through a modern web interface.
+As a DevOps engineer, you are provided with a Flask visitor counter web application that requires containerization and deployment. Your task is to analyze the application architecture, understand the dependencies, and successfully deploy the multi-service application using Docker and Docker Compose.
 
-### App Functionality
-- **Visitor Counter**: Automatically increments each time someone visits the homepage
-- **Real-time Metrics**: Displays total visits, recent activity, and system health status
-- **Interactive Dashboard**: Modern Bootstrap interface with status indicators and action buttons
-- **API Endpoints**: RESTful endpoints for health checks, metrics, and counter management
-- **Data Persistence**: MongoDB stores visitor data that survives container restarts
+**No step-by-step instructions are provided. This tests your ability to understand application requirements and implement proper containerization strategies.**
 
-## Quick Start Guide
+## Application Functionality
 
-### Step 1: Prerequisites
-```bash
-# Verify Docker installation
-docker --version
-docker-compose --version
+### Core Features Required
 
-# Navigate to project directory
-cd project-1-docker-basics
-```
+**1. Visitor Counter System**
+- Automatically increment counter each time homepage is accessed
+- Display current visitor count prominently on main page
+- Store all visitor data persistently in MongoDB database
+- Counter must survive container restarts and rebuilds
 
-### Step 2: Environment Setup
-```bash
-# Copy environment template
-cp .env.example .env
+**2. Interactive Web Dashboard**
+- Modern, responsive Bootstrap-based user interface
+- Real-time status indicators for database connectivity
+- Interactive buttons for testing API endpoints
+- Display visitor metrics and system health information
 
-# Edit environment variables if needed
-nano .env
-```
+**3. RESTful API Endpoints**
+- `GET /` - Main dashboard with visitor counter
+- `GET /health` - Health check endpoint returning JSON status
+- `GET /metrics` - Application metrics including visit statistics
+- `POST /reset` - Reset visitor counter (for testing purposes)
 
-### Step 3: Build and Start Application
-```bash
-# Build all containers
-docker-compose build
+**4. Database Integration**
+- MongoDB for persistent data storage
+- Two collections: `visitors` (counter) and `visits` (visit logs)
+- Automatic database initialization and connection handling
+- Graceful degradation when database is unavailable
 
-# Start application stack
-docker-compose up -d
+## Technical Requirements
 
-# Verify containers are running
-docker-compose ps
-```
+### Container Architecture
+- **Flask Application**: Python web server with PyMongo dependencies
+- **MongoDB Database**: NoSQL database for visitor data persistence
+- **Docker Compose**: Multi-container orchestration
+- **Volume Management**: Persistent storage for database data
+- **Port Configuration**: Application accessible on port 5050
 
-### Step 4: Access the Application
+### Key Technologies
+- **Flask**: Python web framework serving the application
+- **MongoDB**: Document database storing visitor counts and visit logs
+- **PyMongo**: Python MongoDB driver for database operations
+- **Bootstrap**: Frontend UI framework for responsive design
+- **Docker**: Containerization platform
+- **Docker Compose**: Multi-container deployment tool
 
-**Primary Interface:**
-- **Web App**: http://localhost:5000
-- **Dashboard**: Interactive visitor counter with real-time updates
+## DevOps Engineering Challenges
 
-**API Endpoints:**
-- **Health Check**: http://localhost:5000/health
-- **Metrics**: http://localhost:5000/metrics
-- **Reset Counter**: `curl -X POST http://localhost:5000/reset`
+### Architecture Analysis Required
+- Examine the Flask application (`app.py`) to understand MongoDB integration
+- Review the HTML template to understand the user interface requirements
+- Identify required Python dependencies from the application code
+- Understand the database collections: `visitors` (counter) and `visits` (logs)
 
-### Step 5: Test Application Functions
+### Docker Implementation Tasks
+- Create appropriate `Dockerfile` for the Flask application
+- Configure `docker-compose.yml` for multi-service deployment
+- Set up environment variables for database connectivity
+- Implement named volumes for MongoDB data persistence
+- Configure proper networking between Flask and MongoDB containers
 
-```bash
-# Test main application
-curl http://localhost:5000
+### Deployment Verification
+Your deployment must demonstrate:
+- Application accessible at `http://localhost:5050`
+- Visitor counter increments with each page visit
+- MongoDB connection status displays correctly
+- API endpoints (`/health`, `/metrics`, `/reset`) function properly
+- Data persists across container restarts
+- Recent activity tracking works correctly
 
-# Check health status
-curl http://localhost:5000/health
+### Testing Requirements
+Your deployment must successfully handle:
+- Visitor counter increments correctly on page refresh
+- MongoDB connection status shows "Connected" when database is running
+- Counter value persists after `docker-compose restart`
+- API endpoints return proper JSON responses
+- Reset functionality clears counter and refreshes page
+- System shows "Degraded" status when MongoDB is unavailable
 
-# View metrics data
-curl http://localhost:5000/metrics
+## Deliverables
 
-# Reset visitor counter
-curl -X POST http://localhost:5000/reset
-```
+### Required Files
+- `Dockerfile` - Container configuration for Flask application
+- `docker-compose.yml` - Multi-service orchestration configuration
+- `.env` file - Environment variables for database connection
+- Working application accessible at `http://localhost:5050`
 
-### Step 6: Monitor Application
+### Demonstration Requirements
+- Application loads successfully in web browser
+- Visitor counter functionality works correctly
+- Database connectivity indicators function properly
+- API endpoints accessible and returning valid responses
+- Data persistence verified through container restart testing
 
-```bash
-# View application logs
-docker-compose logs -f app
+## Evaluation Criteria
 
-# Monitor MongoDB
-docker-compose logs -f mongodb
+### Docker Containerization (40%)
+- Proper Dockerfile creation for Flask application
+- Correct docker-compose.yml configuration
+- Successful multi-container deployment
+- Application accessible on specified port (5050)
 
-# Check resource usage
-docker stats
-```
+### Database Integration (30%)
+- MongoDB container properly configured
+- Persistent volume implementation for data storage
+- Database connectivity working correctly
+- Data persistence across container restarts
 
-## Container Management
+### Application Functionality (20%)
+- Visitor counter incrementing correctly
+- All API endpoints responding properly
+- UI displaying correct status information
+- Error handling when database unavailable
 
-```bash
-# Stop all containers
-docker-compose stop
+### DevOps Best Practices (10%)
+- Environment variable configuration
+- Container networking setup
+- Proper service dependencies
+- Clean container shutdown and startup
 
-# Start stopped containers
-docker-compose start
+## Success Criteria
 
-# Restart all services
-docker-compose restart
+Your deployment is successful when:
+- `docker-compose up -d` starts all services without errors
+- Application loads at `http://localhost:5050`
+- Visitor counter increments with each page visit
+- MongoDB status shows "Connected" in the dashboard
+- Counter value persists after `docker-compose restart`
+- All API endpoints return valid JSON responses
 
-# Stop and remove everything
-docker-compose down -v
+## Key Learning Objectives
 
-# View resource usage
-docker stats
+This challenge tests your ability to:
+- Analyze Flask application architecture and dependencies
+- Create proper Docker containers for Python web applications
+- Configure multi-service deployments with Docker Compose
+- Implement persistent data storage with named volumes
+- Set up container networking and service communication
+- Apply containerization best practices for development environments
 
-# Access container shell
-docker-compose exec app /bin/bash
-```
+## Getting Started Hints
 
-## Database Management
+1. **Examine the Application**: Start by reviewing `app.py` to understand the Flask application structure and MongoDB requirements
+2. **Check Dependencies**: Look at the imports to identify required Python packages
+3. **Environment Variables**: The app expects MongoDB connection details via environment variables
+4. **Port Configuration**: The application runs on port 5000 internally but should be accessible on port 5050
+5. **Database Requirements**: MongoDB needs persistent storage and proper initialization
 
-```bash
-# Access MongoDB shell
-docker-compose exec mongodb mongosh
-
-# View visitor data
-docker-compose exec mongodb mongosh --eval "db.visitors.find().pretty()"
-
-# Check database status
-docker-compose exec mongodb mongosh --eval "db.stats()"
-
-# Backup database
-docker-compose exec mongodb mongodump --out /data/backup
-
-# View MongoDB logs
-docker-compose logs mongodb
-```
-
-## Troubleshooting
-
-```bash
-# Rebuild containers without cache
-docker-compose build --no-cache
-
-# View detailed container information
-docker-compose ps -a
-
-# Check container health
-docker-compose exec app curl http://localhost:5000/health
-
-# Reset environment completely
-docker-compose down -v
-docker system prune -a
-```
-
-## Project Structure
-```
-project-1-docker-basics/
-├── app.py                      # Flask application with MongoDB integration
-├── requirements.txt            # Python dependencies (Flask, PyMongo)
-├── Dockerfile                  # Development container configuration
-├── Dockerfile.prod             # Production container with optimizations
-├── docker-compose.yml          # Development stack with MongoDB
-├── docker-compose.prod.yml     # Production deployment configuration
-├── .dockerignore               # Docker build context exclusions
-├── .env.example                # Environment variables template
-├── templates/
-│   └── index.html              # Bootstrap web interface
-└── requirements.md             # Complete student assignment guide
-```
-
-## Expected Behavior
-
-When working correctly, you should see:
-
-1. **Homepage Visit**: Counter increases each time you visit http://localhost:5000
-2. **Dashboard Updates**: Real-time status indicators show MongoDB connection
-3. **API Responses**: All endpoints return proper JSON data
-4. **Data Persistence**: Counter value survives container restarts
-5. **Health Status**: Green indicators show system is healthy
-
-## Success Verification
-
-✅ **Application Running**: http://localhost:5000 displays visitor counter  
-✅ **Database Connected**: MongoDB status shows "connected" in dashboard  
-✅ **Counter Working**: Number increases with each page refresh  
-✅ **API Functional**: All endpoints return valid JSON responses  
-✅ **Data Persists**: Counter survives `docker-compose restart`  
-✅ **Health Checks**: `/health` endpoint reports "healthy" status  
-
-## Next Steps
-- Add monitoring with Prometheus
-- Implement CI/CD pipeline
-- Configure reverse proxy
-- Scale with orchestration
+**Remember**: No step-by-step guide is provided. Use your DevOps engineering skills to analyze, plan, and implement the containerization strategy.
