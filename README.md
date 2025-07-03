@@ -1,6 +1,8 @@
 # Project 1: Docker Containerization Challenge
 ## Nebulance Systems BootCamp DevOps Class2025A
 
+## PROJECT TIMELINE: 5 DAYS
+
 ## PROJECT OVERVIEW
 
 As a DevOps engineer, you are provided with a Flask visitor counter web application that requires containerization and deployment. Your task is to analyze the application architecture, understand the dependencies, and successfully deploy the multi-service application using Docker and Docker Compose.
@@ -125,6 +127,7 @@ Your deployment must successfully handle:
 - Container networking setup
 - Proper service dependencies
 - Clean container shutdown and startup
+- Create a clean readme.md demostration how the application functions and how to deploy and access the application
 
 ## Success Criteria
 
@@ -154,4 +157,4 @@ This challenge tests your ability to:
 4. **Port Configuration**: The application runs on port 5000 internally but should be accessible on port 5050
 5. **Database Requirements**: MongoDB needs persistent storage and proper initialization
 
-**Remember**: No step-by-step guide is provided. Use your DevOps engineering skills to analyze, plan, and implement the containerization strategy.
+**Remember**: The use of AI is highly recommended
