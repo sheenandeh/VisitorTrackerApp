@@ -1,7 +1,7 @@
 # Project 1: Docker Containerization Challenge
 ## Nebulance Systems BootCamp DevOps Class2025A
 
-## Assignment Overview
+## PROJECT OVERVIEW
 
 As a DevOps engineer, you are provided with a Flask visitor counter web application that requires containerization and deployment. Your task is to analyze the application architecture, understand the dependencies, and successfully deploy the multi-service application using Docker and Docker Compose.
 
