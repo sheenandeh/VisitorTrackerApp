@@ -71,6 +71,7 @@ curl http://localhost:5000/health
 curl http://localhost:5000/metrics
 ```
 # Reset visitor counter
+```sh
 curl -X POST http://localhost:5000/reset
 ```
 ### Step 6: Monitor Application
