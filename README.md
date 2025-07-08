@@ -69,10 +69,10 @@ curl http://localhost:5000/health
 # View metrics data
 ```sh
 curl http://localhost:5000/metrics
-
+```
 # Reset visitor counter
 curl -X POST http://localhost:5000/reset
-
+```
 ### Step 6: Monitor Application
 
 # View application logs
@@ -104,7 +104,7 @@ docker-compose restart
 # Stop and remove everything
 ```sh
 docker-compose down -v
-
+```
 # View resource usage
 ```sh
 docker stats
@@ -147,12 +147,12 @@ docker-compose ps -a
 ```
 # Check container health
 docker-compose exec app curl http://localhost:5000/health
-```
+
 # Reset environment completely
 ```sh
 docker-compose down -v
 docker system prune -a
-
+```
 ## Project Structure
 ```sh
 project-1-docker-basics/
