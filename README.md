@@ -15,29 +15,36 @@ This project demonstrates containerization fundamentals using a Flask Visitor Co
 
 ### Step 1: Prerequisites
 # Verify Docker installation
+```sh
 docker --version
 docker-compose --version
-
+```
 # Navigate to project directory
+```sh
 cd project-1-docker-basics
-
+```
 ### Step 2: Environment Setup
 # Copy environment template
+```sh
 cp .env.example .env
-
+```
 # Edit environment variables if needed
+```sh
 nano .env
-
+```
 ### Step 3: Build and Start Application
 # Build all containers
+```sh
 docker-compose build
-
+```
 # Start application stack
+```sh
 docker-compose up -d
-
+```
 # Verify containers are running
+```sh
 docker-compose ps
-
+```
 ### Step 4: Access the Application
 
 Primary Interface:
@@ -56,9 +63,11 @@ API Endpoints:
 curl http://localhost:5000
 ```
 # Check health status
+```sh
 curl http://localhost:5000/health
 
 # View metrics data
+```sh
 curl http://localhost:5000/metrics
 
 # Reset visitor counter
@@ -67,67 +76,85 @@ curl -X POST http://localhost:5000/reset
 ### Step 6: Monitor Application
 
 # View application logs
+```sh
 docker-compose logs -f app
-
+```
 # Monitor MongoDB
+```sh
 docker-compose logs -f mongodb
-
+```
 # Check resource usage
+```sh
 docker stats
-
+```
 ## Container Management
 
 # Stop all containers
+```sh
 docker-compose stop
-
+```
 # Start stopped containers
+```sh
 docker-compose start
-
+```
 # Restart all services
+```sh
 docker-compose restart
-
+```
 # Stop and remove everything
+```sh
 docker-compose down -v
 
 # View resource usage
+```sh
 docker stats
-
+```
 # Access container shell
+```sh
 docker-compose exec app /bin/bash
-
+```
 ## Database Management
 
 # Access MongoDB shell
+```sh
 docker-compose exec mongodb mongosh
-
+```
 # View visitor data
+```sh
 docker-compose exec mongodb mongosh --eval "db.visitors.find().pretty()"
-
+```
 # Check database status
+```sh
 docker-compose exec mongodb mongosh --eval "db.stats()"
-
+```
 # Backup database
+```sh
 docker-compose exec mongodb mongodump --out /data/backup
 
 # View MongoDB logs
+```sh
 docker-compose logs mongodb
-
+```
 ## Troubleshooting
 
 # Rebuild containers without cache
+```sh
 docker-compose build --no-cache
-
+```
 # View detailed container information
+```sh
 docker-compose ps -a
-
+```
 # Check container health
 docker-compose exec app curl http://localhost:5000/health
-
+```
 # Reset environment completely
+```sh
 docker-compose down -v
 docker system prune -a
 
 ## Project Structure
+```sh
 project-1-docker-basics/
 ├── app.py                      # Flask application with MongoDB integration
 ├── requirements.txt            # Python dependencies (Flask, PyMongo)
@@ -140,7 +167,7 @@ project-1-docker-basics/
 ├── templates/
 │   └── index.html              # Bootstrap web interface
 └── requirements.md             # Complete student assignment guide
-
+```
 ## Expected Behavior
 
 When working correctly, you should see:
