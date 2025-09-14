@@ -219,7 +219,7 @@ docker-compose exec app curl http://localhost:5000/health
 siege -c 100 -t 1M http://localhost:5000
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
