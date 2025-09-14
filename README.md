@@ -299,12 +299,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-Sani Chafah - [prsan@nebulancesystems.com](mailto:prsan@nebulancesystems.com)
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sani-chafah/)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github&logoColor=white)](https://github.com/CHAFAH)
-
-**Project Link:** [https://github.com/CHAFAH/visitor-track](https://github.com/CHAFAH/visitor-track)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fafungndeh/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github&logoColor=white)](https://github.com/sheenandeh)
 
 ---
 
