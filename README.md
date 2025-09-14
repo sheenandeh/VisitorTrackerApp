@@ -206,7 +206,7 @@ docker-compose exec mongodb mongodump --out /data/backup
 docker-compose exec mongodb mongosh --eval "db.stats()"
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run unit tests
